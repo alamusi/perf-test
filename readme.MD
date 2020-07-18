@@ -181,8 +181,10 @@ Increase file handler limit
 ```
 docker run -p 3000:3000 --ulimit nofile=262144:262144 -it --rm --name mock_sfx_node alamusi/mock_sfx
 ```
-![NODE_ulimit_keep_session.png](NODE_ulimit_keep_session.png)
 
+keep session between iteration (regular load)
+![NODE_ulimit_keep_session.png](NODE_ulimit_keep_session.png)
+new session per iteration (exceed capacity)
 ![NODE_ulimit_new_session.png](NODE_ulimit_new_session.png)
 
 ## Go Mock
@@ -193,8 +195,9 @@ Default config
 docker run -p 3000:3000 --env PORT=3000 -it --rm --name mock_sfx_go wxy325/mock_sfx
 ```
 
+keep session between iteration (regular load)
 ![GO_default_keep_session](GO_default_keep_session.png)
-
+new session per iteration (exceed capacity)
 ![GO_default_new_session](GO_default_new_session.png)
 
 ## NGINX Mock
@@ -210,6 +213,7 @@ Increase worker limits
 docker run -p 3000:3000 -v /Users/alamusi/perf-test/nginxmax.conf:/etc/nginx/nginx.conf:ro -it --rm --name mock_sfx_nginx nginx:1.18.0-alpine
 ```
 
+keep session between iteration (regular load)
 ![NGINX_max_keep_session.png](NGINX_max_keep_session.png)
-
+new session per iteration (exceed capacity)
 ![NGINX_max_new_session.png](NGINX_max_new_session.png)
