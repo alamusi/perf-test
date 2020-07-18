@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SFX_MOCK" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">256</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">256</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[&#xd;
+  {&#xd;
+    &quot;traceId&quot;: &quot;5982fe77008310cc80f1da5e10147517&quot;,&#xd;
+    &quot;name&quot;: &quot;get&quot;,&#xd;
+    &quot;id&quot;: &quot;bd7a977555f6b982&quot;,&#xd;
+    &quot;timestamp&quot;: 1458702548467000,&#xd;
+    &quot;duration&quot;: 386000,&#xd;
+    &quot;localEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;zipkin-query&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;192.168.1.2&quot;,&#xd;
+      &quot;port&quot;: 9411&#xd;
+    },&#xd;
+    &quot;annotations&quot;: [&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548467000,&#xd;
+        &quot;value&quot;: &quot;sr&quot;&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548853000,&#xd;
+        &quot;value&quot;: &quot;ss&quot;&#xd;
+      }&#xd;
+    ]&#xd;
+  },&#xd;
+  {&#xd;
+    &quot;traceId&quot;: &quot;5982fe77008310cc80f1da5e10147517&quot;,&#xd;
+    &quot;name&quot;: &quot;get-traces&quot;,&#xd;
+    &quot;id&quot;: &quot;ebf33e1a81dc6f71&quot;,&#xd;
+    &quot;parentId&quot;: &quot;bd7a977555f6b982&quot;,&#xd;
+    &quot;timestamp&quot;: 1458702548478000,&#xd;
+    &quot;duration&quot;: 354374,&#xd;
+    &quot;localEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;zipkin-query&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;192.168.1.2&quot;,&#xd;
+      &quot;port&quot;: 9411&#xd;
+    },&#xd;
+    &quot;tags&quot;: {&#xd;
+      &quot;lc&quot;: &quot;JDBCSpanStore&quot;,&#xd;
+      &quot;request&quot;: &quot;QueryRequest{serviceName=zipkin-query, spanName=null, annotations=[], binaryAnnotations={}, minDuration=null, maxDuration=null, endTs=1458702548478, lookback=86400000, limit=1}&quot;&#xd;
+    }&#xd;
+  },&#xd;
+  {&#xd;
+    &quot;traceId&quot;: &quot;5982fe77008310cc80f1da5e10147517&quot;,&#xd;
+    &quot;name&quot;: &quot;query&quot;,&#xd;
+    &quot;id&quot;: &quot;be2d01e33cc78d97&quot;,&#xd;
+    &quot;parentId&quot;: &quot;ebf33e1a81dc6f71&quot;,&#xd;
+    &quot;timestamp&quot;: 1458702548786000,&#xd;
+    &quot;duration&quot;: 13000,&#xd;
+    &quot;localEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;zipkin-query&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;192.168.1.2&quot;,&#xd;
+      &quot;port&quot;: 9411&#xd;
+    },&#xd;
+    &quot;remoteEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;spanstore-jdbc&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;127.0.0.1&quot;,&#xd;
+      &quot;port&quot;: 3306&#xd;
+    },&#xd;
+    &quot;annotations&quot;: [&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548786000,&#xd;
+        &quot;value&quot;: &quot;cs&quot;&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548799000,&#xd;
+        &quot;value&quot;: &quot;cr&quot;&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;tags&quot;: {&#xd;
+      &quot;jdbc.query&quot;: &quot;select distinct `zipkin_spans`.`trace_id` from `zipkin_spans` join `zipkin_annotations` on (`zipkin_spans`.`trace_id` = `zipkin_annotations`.`trace_id` and `zipkin_spans`.`id` = `zipkin_annotations`.`span_id`) where (`zipkin_annotations`.`endpoint_service_name` = ? and `zipkin_spans`.`start_ts` between ? and ?) order by `zipkin_spans`.`start_ts` desc limit ?&quot;,&#xd;
+      &quot;sa&quot;: &quot;true&quot;&#xd;
+    }&#xd;
+  },&#xd;
+  {&#xd;
+    &quot;traceId&quot;: &quot;5982fe77008310cc80f1da5e10147517&quot;,&#xd;
+    &quot;name&quot;: &quot;query&quot;,&#xd;
+    &quot;id&quot;: &quot;13038c5fee5a2f2e&quot;,&#xd;
+    &quot;parentId&quot;: &quot;ebf33e1a81dc6f71&quot;,&#xd;
+    &quot;timestamp&quot;: 1458702548817000,&#xd;
+    &quot;duration&quot;: 1000,&#xd;
+    &quot;localEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;zipkin-query&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;192.168.1.2&quot;,&#xd;
+      &quot;port&quot;: 9411&#xd;
+    },&#xd;
+    &quot;remoteEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;spanstore-jdbc&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;127.0.0.1&quot;,&#xd;
+      &quot;port&quot;: 3306&#xd;
+    },&#xd;
+    &quot;annotations&quot;: [&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548817000,&#xd;
+        &quot;value&quot;: &quot;cs&quot;&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548818000,&#xd;
+        &quot;value&quot;: &quot;cr&quot;&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;tags&quot;: {&#xd;
+      &quot;jdbc.query&quot;: &quot;select `zipkin_spans`.`trace_id`, `zipkin_spans`.`id`, `zipkin_spans`.`name`, `zipkin_spans`.`parent_id`, `zipkin_spans`.`debug`, `zipkin_spans`.`start_ts`, `zipkin_spans`.`duration` from `zipkin_spans` where `zipkin_spans`.`trace_id` in (?)&quot;,&#xd;
+      &quot;sa&quot;: &quot;true&quot;&#xd;
+    }&#xd;
+  },&#xd;
+  {&#xd;
+    &quot;traceId&quot;: &quot;5982fe77008310cc80f1da5e10147517&quot;,&#xd;
+    &quot;name&quot;: &quot;query&quot;,&#xd;
+    &quot;id&quot;: &quot;37ee55f3d3a94336&quot;,&#xd;
+    &quot;parentId&quot;: &quot;ebf33e1a81dc6f71&quot;,&#xd;
+    &quot;timestamp&quot;: 1458702548827000,&#xd;
+    &quot;duration&quot;: 2000,&#xd;
+    &quot;localEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;zipkin-query&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;192.168.1.2&quot;,&#xd;
+      &quot;port&quot;: 9411&#xd;
+    },&#xd;
+    &quot;remoteEndpoint&quot;: {&#xd;
+      &quot;serviceName&quot;: &quot;spanstore-jdbc&quot;,&#xd;
+      &quot;ipv4&quot;: &quot;127.0.0.1&quot;,&#xd;
+      &quot;port&quot;: 3306&#xd;
+    },&#xd;
+    &quot;annotations&quot;: [&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548827000,&#xd;
+        &quot;value&quot;: &quot;cs&quot;&#xd;
+      },&#xd;
+      {&#xd;
+        &quot;timestamp&quot;: 1458702548829000,&#xd;
+        &quot;value&quot;: &quot;cr&quot;&#xd;
+      }&#xd;
+    ],&#xd;
+    &quot;tags&quot;: {&#xd;
+      &quot;jdbc.query&quot;: &quot;select `zipkin_annotations`.`trace_id`, `zipkin_annotations`.`span_id`, `zipkin_annotations`.`a_key`, `zipkin_annotations`.`a_value`, `zipkin_annotations`.`a_type`, `zipkin_annotations`.`a_timestamp`, `zipkin_annotations`.`endpoint_ipv4`, `zipkin_annotations`.`endpoint_port`, `zipkin_annotations`.`endpoint_service_name` from `zipkin_annotations` where `zipkin_annotations`.`trace_id` in (?) order by `zipkin_annotations`.`a_timestamp` asc, `zipkin_annotations`.`a_key` asc&quot;,&#xd;
+      &quot;sa&quot;: &quot;true&quot;&#xd;
+    }&#xd;
+  }&#xd;
+]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">3000</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">v2/trace</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
